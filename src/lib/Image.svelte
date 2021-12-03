@@ -1,7 +1,8 @@
 <script lang="ts">
 	export let src: string;
-	export let alt: string;
-    export let classes: string;
+	export let alt: string = "";
+    export let classes: string = "";
+	export let loading: string = "lazy";
 
 	import { onMount } from 'svelte';
 
@@ -19,7 +20,7 @@
 	});
 </script>
 
-<img {src} {alt} class:loaded class={classes} bind:this={thisImage} on:error={handleError} />
+<img {src} {alt} {loading} class:loaded class={classes} bind:this={thisImage} on:error={handleError} />
 
 <style>
 	img {
