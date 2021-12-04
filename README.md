@@ -16,6 +16,7 @@ Required arguments:
 `src`
 
 Optional arguments:
+`srcMobile` for a mobile version of the img
 `alt` like html alt
 `classes` like css class
 `loading` like html loading (default is `lazy`, can change to `eager`)
