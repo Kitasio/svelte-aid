@@ -5,7 +5,6 @@
 	export let classes: string = "";
 	export let loading: string = "lazy";
 
-	import { browser } from "$app/env";
 	import { onMount } from "svelte";
 
 	let loaded: boolean = false;
@@ -35,7 +34,7 @@
 		bind:this={thisImage}
 		on:error={handleError}
 	/>
-{:else if w >= 600}
+{:else}
 	<img
 		{src}
 		{alt}
