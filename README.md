@@ -37,3 +37,26 @@ Optional arguments:
 
 ### Examples
 `<CopyText text={"this text will be copied"} useText={true} onCopyText={"Nice!"} color={"red"} colorActive={"green"} />`
+
+## Ticker
+A horizontally running ticker
+
+Required arguments:
+`items` an array of strings to animate
+
+Optional arguments:
+`duration` in seconds (default `10s`)
+`durationMobile` in seconds (default `20s`)
+`classWrapper` css classes for the wrapper (default `absolute`, useful for position fixed and background color and padding)
+`classParent` css classes for the parent of items (default `space-x-6`)
+`classChild` css classes for individual item (default `inline-block`)
+
+### Examples
+```
+<Ticker
+    classChild={"text-xl text-white uppercase inline-block"}
+    classParent={"space-x-10"}
+    classWrapper={"fixed bottom-0 p-5 bg-black"}
+    duration={"15s"}
+/>
+```
