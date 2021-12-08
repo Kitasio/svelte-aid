@@ -60,3 +60,30 @@ Optional arguments:
     duration={"15s"}
 />
 ```
+
+## Scroller
+Link scroller with animated active images
+
+Optional arguments:
+```
+export let items = [
+    {
+        text: "1",
+        img: "https://picsum.photos/1000/201",
+        link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
+    {
+        text: "2",
+        img: "https://picsum.photos/1000/202",
+        link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
+    {
+        text: "3",
+        img: "https://picsum.photos/1000/203",
+        link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
+];
+export let parentClass: string = "py-7 md:py-10";
+export let textClass: string = "";
+export let wrapperClass: string = "";
+```

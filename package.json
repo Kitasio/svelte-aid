@@ -1,6 +1,6 @@
 {
   "name": "svelte-aid",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -27,6 +27,7 @@
   },
   "type": "module",
   "dependencies": {
+    "gsap": "^3.8.0",
     "svelte2tsx": "^0.4.10"
   }
 }
