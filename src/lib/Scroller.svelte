@@ -1,7 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
-    import { Image } from "svelte-aid"
+
+    let loaded: boolean = false;
+    let thisImage: any;
 
     export let items = [
         {
@@ -17,6 +19,21 @@
         {
             text: "3",
             img: "https://picsum.photos/1000/203",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        },
+        {
+            text: "5",
+            img: "https://picsum.photos/1000/205",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        },
+        {
+            text: "6",
+            img: "https://picsum.photos/1000/206",
+            link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        },
+        {
+            text: "7",
+            img: "https://picsum.photos/1000/207",
             link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
         },
     ];
@@ -50,9 +67,14 @@
                     trigger: `#item${i}`,
                     toggleActions: "restart reverse restart reverse",
                     snap: 0.5,
-                    onToggle: (self) => (triItems[i]["shown"] = self.isActive),
+                    onToggle: (self) => {
+                        triItems[i]["shown"] = self.isActive;
+                    },
                 },
             });
+        }
+        thisImage.onload = () => {
+            loaded = true;
         }
     });
 </script>
@@ -73,14 +95,19 @@
             class="relative border-b border-black {parentClass}"
         >
             <a href={i.link}>
-                {#if i["shown"]}
-                    <div transition:fade>
-                        <Image
-                            src={i.img}
-                            classes={"absolute w-full top-0 h-full object-cover"}
-                        />
-                    </div>
-                {/if}
+                {#key i["shown"]}
+                    <img
+                        transition:fade={{duration: 500}}
+                        src={i.img}
+                        alt={i.text}
+                        class={i["shown"]
+                            ? "absolute transition duration-500 opacity-100 w-full top-0 h-full object-cover"
+                            : "absolute loaded transition duration-500 opacity-0 hidden w-full top-0 h-full object-cover"}
+                        class:loaded
+                        bind:this={thisImage}
+                        loading="lazy"
+                    />
+                {/key}
                 <div class="flex justify-between mx-5">
                     <div class="z-20 relative {textClass}">{i.text}</div>
                     <svg
@@ -102,3 +129,13 @@
         </div>
     {/each}
 </div>
+
+<style>
+    img {
+        opacity: 0;
+        transition: opacity 500ms ease-out;
+    }
+    img.loaded {
+        opacity: 1;
+    }
+</style>
