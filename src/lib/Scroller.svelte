@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { fade } from "svelte/transition";
-    import Image from "./Image.svelte";
+    import { Image } from "svelte-aid"
 
     export let items = [
         {

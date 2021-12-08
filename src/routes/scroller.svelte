@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Scroller from "$lib/Scroller.svelte";
+    import { Scroller } from "svelte-aid"
 </script>
 
 <div>
